@@ -1,0 +1,30 @@
+version: "3"
+services:
+  redis:
+    build:
+      context: ./redis/6.2
+      args:
+        REDIS_VERSION: 6.2.14
+    image: seanly/midextra:redis-v6.2.14
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data:/data
+    environment:
+      REDIS_OPTS: --appendonly yes --protected-mode no --tcp-backlog "20480"
+      REDIS_PSW: "redis_passw0rd"
+    healthcheck:
+      test: redis-cli -h 127.0.0.1 -a $${REDIS_PSW} 2>/dev/null ping |grep PONG
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+networks:
+  default:
+    name: opsbox-network
+    external: true
+
+volumes:
+    redis-data:
