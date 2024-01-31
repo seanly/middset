@@ -1,5 +1,5 @@
 ARG TOMCAT_VERSION=8.5.96-jdk8
-FROM tomcat:${TOMCAT_VERSION}-temurin-focal
+FROM tomcat:${TOMCAT_VERSION}-temurin-jammy
 
 ENV TZ=Asia/Shanghai
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
