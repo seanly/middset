@@ -5,7 +5,7 @@ services:
       context: ./
       args:
         - VERSION=RELEASE.2021-12-20T22-07-16Z
-    image: seanly/midextra:minio-2021-12
+    image: seanly/middset:minio-2021-12
     container_name: minio
     restart: unless-stopped
     command: server /data --console-address :9001

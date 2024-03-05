@@ -5,7 +5,7 @@ services:
       context: ./
       args:
         TOMCAT_VERSION: 8.5.96-jdk8
-    image: seanly/midextra:tomcat-v8.5.96-jdk8
+    image: seanly/middset:tomcat-v8.5.96-jdk8
     container_name: tomcat
     restart: always
     ports:
